@@ -3,3 +3,6 @@ authority = "cpan:TOKUHIROM"
 
 [tap_harness_args]
 jobs=3
+
+[release]
+do_not_upload_to_cpan=true

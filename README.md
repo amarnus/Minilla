@@ -4,18 +4,22 @@ Minilla - CPAN module authoring tool
 
 # SYNOPSIS
 
-    minil new     - Create a new dist
-    minil test    - Run test cases
-    minil dist    - Make your dist tarball
-    minil install - Install your dist
-    minil release - Release your dist to CPAN
-    minil run     - Run arbitrary commands against build dir
+```
+minil new     - Create a new dist
+minil test    - Run test cases
+minil dist    - Make your dist tarball
+minil install - Install your dist
+minil release - Release your dist to CPAN
+minil run     - Run arbitrary commands against build dir
+```
 
 # DESCRIPTION
 
 Minilla is a CPAN module authoring tool. Minilla provides [minil](https://metacpan.org/pod/minil) command for authorizing a CPAN distribution.
 
-    (M::I - inc) + shipit + (dzil - plugins)
+```
+(M::I - inc) + shipit + (dzil - plugins)
+```
 
 **THIS IS A DEVELOPMENT RELEASE. API MAY CHANGE WITHOUT NOTICE**.
 
@@ -33,22 +37,24 @@ As stated above, Minilla is opinionated. Minilla has a bold assumption and conve
 
 # GETTING STARTED
 
-    # First time only
-    % cpanm Minilla
-    # Minilla has only a few deps. It should be very quick
+```
+# First time only
+% cpanm Minilla
+# Minilla has only a few deps. It should be very quick
 
-    # Make a new distribution
-    % minil new Dist-Name
-    % cd Dist-Name/
+# Make a new distribution
+% minil new Dist-Name
+% cd Dist-Name/
 
-    # Git commit
-    % git commit -m "initial commit"
+# Git commit
+% git commit -m "initial commit"
 
-    # Hack your code!
-    % $EDITOR lib/Dist/Name.pm t/dist-name.t cpanfile
+# Hack your code!
+% $EDITOR lib/Dist/Name.pm t/dist-name.t cpanfile
 
-    # Done? Test and release it!
-    % minil release
+# Done? Test and release it!
+% minil release
+```
 
 It's that easy.
 
@@ -69,8 +75,10 @@ Minilla is built on only few small libraries. You can install Minilla without a 
 
 ## And, what is Minilla?
 
-    Minilla is a Kaiju (Japanese giant monster) from the Godzilla series of films and is the first of several young Godzillas.
-    http://en.wikipedia.org/wiki/Minilla
+```
+Minilla is a Kaiju (Japanese giant monster) from the Godzilla series of films and is the first of several young Godzillas.
+http://en.wikipedia.org/wiki/Minilla
+```
 
 # CONFIGURATION
 
@@ -84,38 +92,50 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - readme\_from
 
-        readme_from="lib/My/Foo.pod"
+    ```
+    readme_from="lib/My/Foo.pod"
+    ```
 
     You can specify the file to generate the README.md. This is a main module path by default.
 
 - tag\_format
 
-        tag_format="perl/%v"
+    ```
+    tag_format="perl/%v"
+    ```
 
     format of the tag to apply. Defaults to %v. `%v` will replace with the distribution version.
 
 - abstract\_from
 
-        abstract_from="lib/My/Foo.pod"
+    ```
+    abstract_from="lib/My/Foo.pod"
+    ```
 
     Grab abstract information from the file contains pod.
 
 - authors\_from
 
-        authors_from="lib/My/Foo.pod"
+    ```
+    authors_from="lib/My/Foo.pod"
+    ```
 
     Grab authors information from the file contains pod.
 
 - authority
 
-        authority = "cpan:TOKUHIROM"
+    ```
+    authority = "cpan:TOKUHIROM"
+    ```
 
     Set x\_authority attribute to META.
     See [http://jawnsy.wordpress.com/2011/02/20/what-is-x\_authority/](http://jawnsy.wordpress.com/2011/02/20/what-is-x_authority/) for more details.
 
 - allow\_pureperl
 
-        allow_pureperl=1
+    ```
+    allow_pureperl=1
+    ```
 
     A boolean indicating the module is still functional without its XS parts.  When an XS module is build
     with `--pureperl_only`, it will otherwise fail.
@@ -124,14 +144,18 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - no\_github\_issues
 
-        no_github_issues=true
+    ```
+    no_github_issues=true
+    ```
 
     Minilla sets bugtracker as github issues by default. But if you want to use RT, you can set this variable.
 
 - no\_index
 
-        [no_index]
-        directory=['t', 'xt', 'tools']
+    ```
+    [no_index]
+    directory=['t', 'xt', 'tools']
+    ```
 
     Minilla sets META.json's no\_index as `directory => ['t', 'xt', 'inc', 'share', 'eg', 'examples', 'author', 'builder']`
     by default. But if you want to change them, you can set this section variable. If this section is set,
@@ -139,7 +163,9 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - c\_source
 
-        c_source = ['src']
+    ```
+    c_source = ['src']
+    ```
 
     A directory which contains C source files that the rest of the build may depend
     on.  Any ".c" files in the directory will be compiled to object files.
@@ -148,7 +174,9 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - script\_files
 
-        script_files = ['bin/foo', 'script/*']
+    ```
+    script_files = ['bin/foo', 'script/*']
+    ```
 
     Minilla sets install script files as `['script/*', 'bin/*']` by default.
 
@@ -156,21 +184,27 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - tap\_harness\_args(EXPERIMENTAL)
 
-        [tap_harness_args]
-        jobs=19
+    ```
+    [tap_harness_args]
+    jobs=19
+    ```
 
     This parameters pass to TAP::Harness when running tests. See the [TAP::Harness](https://metacpan.org/pod/TAP::Harness) documentation for details.
 
 - license
 
-        license="artistic_2"
+    ```
+    license="artistic_2"
+    ```
 
     You can specify your favorite license on minil.toml. The license key is same as CPAN Meta spec 2.0.
     See [CPAN::Meta::Spec](https://metacpan.org/pod/CPAN::Meta::Spec).
 
 - badges
 
-        badges = ['travis', 'coveralls', 'gitter']
+    ```
+    badges = ['travis', 'coveralls', 'gitter']
+    ```
 
     Embed badges image (e.g. Travis-CI) to README.md. It ought to be array and each elements must be service name. Now, supported services are only 'travis', 'coveralls' and 'gitter'.
 
@@ -178,8 +212,10 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
     Specify the PL files.
 
-        [PL_files]
-        lib/Foo/Bar.pm.PL="lib/Foo/Bar.pm"
+    ```
+    [PL_files]
+    lib/Foo/Bar.pm.PL="lib/Foo/Bar.pm"
+    ```
 
     This option is not supported by [Minilla::ModuleMaker::ModuleBuildTiny](https://metacpan.org/pod/Minilla::ModuleMaker::ModuleBuildTiny).
 
@@ -189,56 +225,72 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
     Specify a custom Module::Build subclass.
 
-        [build]
-        build_class = "builder::MyBuilder"
+    ```
+    [build]
+    build_class = "builder::MyBuilder"
+    ```
 
 - XSUtil.needs\_compiler\_c99
 
-        [XSUtil]
-        needs_compiler_c99 = 1
+    ```
+    [XSUtil]
+    needs_compiler_c99 = 1
+    ```
 
     You can specify `needs_compiler_c99` parameter of [Module::Build::XSUtil](https://metacpan.org/pod/Module::Build::XSUtil).
 
 - XSUtil.needs\_compiler\_cpp
 
-        [XSUtil]
-        needs_compiler_cpp = 1
+    ```
+    [XSUtil]
+    needs_compiler_cpp = 1
+    ```
 
     You can specify `needs_compiler_cpp` parameter of [Module::Build::XSUtil](https://metacpan.org/pod/Module::Build::XSUtil).
 
 - XSUtil.generate\_ppport\_h
 
-        [XSUtil]
-        generate_ppport_h = 1
+    ```
+    [XSUtil]
+    generate_ppport_h = 1
+    ```
 
     You can specify `generate_ppport_h` parameter of [Module::Build::XSUtil](https://metacpan.org/pod/Module::Build::XSUtil).
 
 - XSUtil.generate\_xshelper\_h
 
-        [XSUtil]
-        generate_xshelper_h = 1
+    ```
+    [XSUtil]
+    generate_xshelper_h = 1
+    ```
 
     You can specify `generate_xshelper_h` parameter of [Module::Build::XSUtil](https://metacpan.org/pod/Module::Build::XSUtil).
 
 - XSUtil.cc\_warnings
 
-        [XSUtil]
-        cc_warnings = 1
+    ```
+    [XSUtil]
+    cc_warnings = 1
+    ```
 
     You can specify `cc_warnings` parameter of [Module::Build::XSUtil](https://metacpan.org/pod/Module::Build::XSUtil).
 
 - FileGatherer.exclude\_match
 
-        [FileGatherer]
-        exclude_match = ['^author_tools/.*']
+    ```
+    [FileGatherer]
+    exclude_match = ['^author_tools/.*']
+    ```
 
     Nothing by default. To exclude certain files from being gathered into dist, use the
     `exclude_match` option. Files matching the patterns are not gathered.
 
 - FileGatherer.include\_dotfiles
 
-        [FileGatherer]
-        include_dotfiles = false
+    ```
+    [FileGatherer]
+    include_dotfiles = false
+    ```
 
     By default, files will not be included in dist if they begin with a dot. This goes
     both for files and for directories.
@@ -247,8 +299,10 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
 - release.pause\_config
 
-        [release]
-        pause_config = "/path/to/some/.pause"
+    ```perl
+    [release]
+    pause_config = "/path/to/some/.pause"
+    ```
 
     By setting this value to another PAUSE configuration file (see
     ["CONFIGURATION" in cpan\_upload](https://metacpan.org/pod/cpan_upload#CONFIGURATION) for the details), it is possible to use another
@@ -258,37 +312,47 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
     To do so, simply add a `upload_uri` entry in your file to the alternate PAUSE
     server, i.e :
 
-        upload_uri http://127.0.0.1:5000/pause/authenquery
+    ```perl
+    upload_uri http://127.0.0.1:5000/pause/authenquery
+    ```
 
     If you instantly launch your origin upload server as DarkPAN, See [OrePAN2::Server](https://metacpan.org/pod/OrePAN2::Server).
 
 - release.do\_not\_upload\_to\_cpan
 
-        [release]
-        do_not_upload_to_cpan=true
+    ```
+    [release]
+    do_not_upload_to_cpan=true
+    ```
 
     This variable disables CPAN upload feature.
 
 - release.hooks
 
-        [release]
-        hooks = [
-            "COMMAND1",
-            "COMMAND2"
-        ]
+    ```
+    [release]
+    hooks = [
+        "COMMAND1",
+        "COMMAND2"
+    ]
+    ```
 
     Commands that are specified by this option will be executed when releasing. If result of commands is not successful, it will abort.
 
 - ReleaseTest.MinimumVersion
 
-        [ReleaseTest]
-        MinimumVersion = false
+    ```
+    [ReleaseTest]
+    MinimumVersion = false
+    ```
 
     If you set this key false, Minilla will not generate 'xt/minilla/minimum\_version.t'.
 
 - requires\_external\_bin
 
-        requires_external_bin=['tar']
+    ```
+    requires_external_bin=['tar']
+    ```
 
     The `requires_external_bin` command takes the name of a system command
     or program. Build fail if the command does not exist.
@@ -346,12 +410,16 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
 
     If you want to create new project with Module::Build::Tiny, run the command as following.
 
-        % minil new -p ModuleBuildTiny My::Awesome::Module
+    ```
+    % minil new -p ModuleBuildTiny My::Awesome::Module
+    ```
 
     If you want to migrate existing project, you need to rewrite minil.toml file.
     You need to add following line:
 
-        module_maker="ModuleBuildTiny"
+    ```
+    module_maker="ModuleBuildTiny"
+    ```
 
 - How do I use ExtUtils::MakeMaker with Minilla?
 
@@ -360,7 +428,9 @@ But, you can write configurations to _minil.toml_ file in [TOML](https://github.
     You need to rewrite minil.toml file.
     You need to add following line:
 
-        module_maker="ExtUtilsMakeMaker"
+    ```
+    module_maker="ExtUtilsMakeMaker"
+    ```
 
     (There is no profile, yet. Patches welcome.)
 

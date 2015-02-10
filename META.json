@@ -111,7 +111,7 @@
          "web" : "https://github.com/amarnus/Minilla"
       }
    },
-   "version" : "v2.3.0",
+   "version" : "v2.4.0",
    "x_authority" : "cpan:TOKUHIROM",
    "x_contributors" : [
       "mattn <mattn.jp@gmail.com>",
@@ -147,6 +147,7 @@
       "karupanerura <karupa@cpan.org>",
       "Shoichi Kaji <skaji@cpan.org>",
       "moznion <moznion@gmail.com>",
-      "tokuhirom <tokuhirom@gmail.com>"
+      "tokuhirom <tokuhirom@gmail.com>",
+      "Amarnath Ravikumar <amar@semantics3.com>"
    ]
 }
