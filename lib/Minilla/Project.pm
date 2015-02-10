@@ -579,10 +579,10 @@ sub generate_minil_toml {
 sub regenerate_readme_md {
     my $self = shift;
 
-    require Pod::Markdown;
+    require Pod::Markdown::Github;
     Pod::Markdown->VERSION('1.322');
 
-    my $parser = Pod::Markdown->new;
+    my $parser = Pod::Markdown::Github->new;
     $parser->parse_from_file($self->readme_from);
 
     my $fname = File::Spec->catfile($self->dir, 'README.md');
